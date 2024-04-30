@@ -47,7 +47,23 @@ Please modify the working path in the R language function, the following is the 
 ```
 
 ## Repository Contents
+This repository contains the Matlab code and R scripts used for the comparison of 5 methods. 
 
+- Methods/
+   - CROWN:
+     - glmnet_matlab:
+     - crown.m:
+   - NLS:
+     - nls_covMarket.m:
+   - NODEWISE:
+     - Nodewise_Run_R.R:
+     - Nodewise_source.R:
+   - POET:
+     - POET:
+     - POET.m:
+     - POET_R.R:
+   - SF-NLS:
+     - SF-NLS_Run_R.R:
 ## Example of Usage
 
 ## References
