@@ -16,6 +16,8 @@ Meets Goldilocks](http://www.ledoit.net/Goldilocks_RFS_2017.pdf)
 Matrix for Portfolio Selection: Markowitz
 Meets Goldilocks](http://www.ledoit.net/Goldilocks_RFS_2017.pdf)
 
+The paper detailing the theory and methodology behind the CROWN estimator is publicly available and can be accessed at [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
+
 
 ## 2. Required packages
 You need to download matlab toolbox RunRCode for R functions calling.
@@ -164,4 +166,13 @@ Use these code to estimate precision matrix:
 | NLS    | 0.3482 | 3.8828    | 12.4516   | 0.2734  |
 | SFNL   | 0.3596 | 2.4863    | 7.1400    | 0.1972  |
 
+## References
+
+Callot, L., Caner, M., Önder, A. Ö., & Ulaşan, E. (2021). A Nodewise Regression Approach to Estimating Large Portfolios. Journal of Business & Economic Statistics, 39(2), 520–531.
+
+Caner, M., Fan, Q., & Li, Y. (2024). Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints. arXiv preprint arXiv:2402.17523.
+
+Fan, J., Liao, Y., & Mincheva, M. (2013). Large covariance estimation by thresholding principal orthogonal complements. Journal of the Royal Statistical Society. Series B (Statistical Methodology), 75(4), 603–680.
+
+Ledoit, O., & Wolf, M. (2017). Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks. Review of Financial Studies, 30, 4349–4388.
 
