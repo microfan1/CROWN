@@ -7,14 +7,14 @@ This repository shows comparison of different methods in obtaining a solution fo
 The key of this process is to get a good estimator of precision matrix for the return data.
 
 This repository compares our method **CROWN** with 4 baseline methods:
-1. **NODEWISE** from [A Nodewise Regression Approach to Estimating Large Portfolios](https://arxiv.org/pdf/1611.07347)
-2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements](https://arxiv.org/pdf/1201.0175)
+1. **NODEWISE** from [A Nodewise Regression Approach to Estimating Large Portfolios]
+2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
 3. **NLS**  from [Nonlinear Shrinkage of the Covariance
 Matrix for Portfolio Selection: Markowitz
-Meets Goldilocks](http://www.ledoit.net/Goldilocks_RFS_2017.pdf)
+Meets Goldilocks]
 4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance
 Matrix for Portfolio Selection: Markowitz
-Meets Goldilocks](http://www.ledoit.net/Goldilocks_RFS_2017.pdf)
+Meets Goldilocks]
 
 The paper detailing the theory and methodology behind the CROWN estimator is publicly available and can be accessed at [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
 
@@ -168,11 +168,10 @@ Use these code to estimate precision matrix:
 
 ## References
 
-Callot, L., Caner, M., Önder, A. Ö., & Ulaşan, E. (2021). A Nodewise Regression Approach to Estimating Large Portfolios. Journal of Business & Economic Statistics, 39(2), 520–531.
+Callot, L., M. Caner, O. Onder, and E. Ulasan (2021). A nodewise regression approach to estimating large portfolios. Journal of Business and Economic Statistics 39, 520–531.
 
 Caner, M., Fan, Q., & Li, Y. (2024). Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints. arXiv preprint arXiv:2402.17523.
 
-Fan, J., Liao, Y., & Mincheva, M. (2013). Large covariance estimation by thresholding principal orthogonal complements. Journal of the Royal Statistical Society. Series B (Statistical Methodology), 75(4), 603–680.
+Fan, J., Y. Liao, and M. Mincheva (2013). Large covariance estimation by thresholding principal orthogonal complements. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 75 (4), 603–680.
 
-Ledoit, O., & Wolf, M. (2017). Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks. Review of Financial Studies, 30, 4349–4388.
-
+Ledoit, O, M. and M. Wolf (2017). Nonlinear shrinkage of the covariance matrix for portfolio selection: Markowitz meets goldilocks. Review of Financial Studies 30, 4349–4388.
