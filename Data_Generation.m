@@ -4,7 +4,6 @@ k=3; %default factor number
 
 %generate factor return
 f=zeros(3,N); %first row: f_t=0
-%cov_u = [1-(bf(1,1)^2),0,0;0,1-(bf(2,2)^2),0;0,0,1-(bf(3,3)^2)];
 cov_u = cov_f -bf*cov_f*bf';
 
 u = mvnrnd(zeros(3,1),cov_u,N)';
