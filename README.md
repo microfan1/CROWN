@@ -2,19 +2,15 @@ Crown Tutorial
 ================
 
 ## 1. Overview
-This repository shows comparison of different methods in obtaining a solution for high dimensional portfolio with a large number of assets. That is, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
+This repository provides the code needed to compute the CROWN method for **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n**, which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different methods in obtaining a solution for high dimensional portfolio with a large number of assets. Specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
 
-The key of this process is to get a good estimator of precision matrix for the return data.
+Firstly, we need an estimator of precision matrix for the return data.
 
-This repository compares our method **CROWN** with 4 baseline methods:
+This repository shows the method **CROWN** along with 4 other popular methods:
 1. **NODEWISE** from [A Nodewise Regression Approach to Estimating Large Portfolios]
 2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
-3. **NLS**  from [Nonlinear Shrinkage of the Covariance
-Matrix for Portfolio Selection: Markowitz
-Meets Goldilocks]
-4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance
-Matrix for Portfolio Selection: Markowitz
-Meets Goldilocks]
+3. **NLS**  from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
+4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 
 The paper detailing the theory and methodology behind the CROWN estimator is publicly available and can be accessed at [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
 
