@@ -30,7 +30,7 @@ e=e';
 
 
 %inv_Sigma by Sherman-Morrison-Woodbury Formula
-if flag==3
+if flag==1
     inv_Sigma=inv_V-inv_V*b/(eye(k)+b'*(inv_V+inv_V')/2*b)*b'*inv_V;
 else
     inv_Sigma=inv(Sigma);
