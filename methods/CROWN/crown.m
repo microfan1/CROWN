@@ -1,5 +1,6 @@
 % subdata  is N by p matrix
 % this function return Nodewise regression Precision matrix estimator
+% need to check this subdata source, this is factor model residual
 function [Pm,C_hat,T_2_hat] = crown(subdata)
 n = size(subdata,1);
 p = size(subdata,2);
@@ -35,7 +36,7 @@ for b_loop = 1 : p
     aim_fit = fit1(aim_loc,:);
     aim_lambda = lambda_set(aim_loc);
     e_star = Y - X * aim_fit';
-    tau = (Y' * e_star)/n; %这行不一样
+    tau = (Y' * e_star)/n; 
     T_2(b_loop) = tau;
     aim_fit_set(b_loop,:) = aim_fit;
 end
