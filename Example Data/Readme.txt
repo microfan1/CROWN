@@ -7,23 +7,23 @@ size(fac) = 3 * 150;
 
 code for generation(Mainly Settings):
 
-% Set your portfolio and sample size
+% Set your portfolio and sample size (p,N)
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
-% Set your Tracing Error Constraint
+% Set your Tracking Error Constraint
 TEC = 0.2;
-% Set your Weights Constraint
+% Set your Weights Constraint, first the constrained assets, then the constraint value
 oneR = [ones(10,1);zeros(p-10,1)];
 omega = 0.2;
 %3-Factor
-flag=3;k = 3;
-%Data Loading 
+flag=1;k = 3;
+%Generate Example Data Input Parameters 
 beta_total=mvnrnd([0.001,0.001,0.001],0.1.*eye(3),p);
 bf = [0.005,0,0;0,0.005,0;0,0,0.005];% B Ft + et
 mu_f=[0.005,0.005,0.005]';%kx1
 cov_f = eye(3);
 [R_total,mu_pop_total,V_total,~,~,fac_total]=Data_Generation(p,N,flag,beta_total,bf,mu_f,cov_f);
-%You can replace R, fac and res with other data
+%R: excess return, fac: factor, res: factor model residual. You can replace R, fac and res with own data
 beta=beta_total(1:p,:); %pxk
 R=R_total(1:N,1:p);mu_pop=mu_pop_total(1:p);V=V_total(1:p,1:p);
 inv_Sigma_pop=inv(V);fac=fac_total(:,1:N);
-res= R-fac'*((fac*fac')\fac*R); %obtain residual
+res= R-fac'*((fac*fac')\fac*R); %obtain (factor model) residual
