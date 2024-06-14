@@ -1,5 +1,5 @@
 % subdata  is N by p matrix
-% this function return Nodewise regression Precision matrix estimator
+% this function return Nodewise regression Precision matrix estimator (Crown)
 % need to check this subdata source, this is factor model residual
 function [Pm,C_hat,T_2_hat] = crown(subdata)
 n = size(subdata,1);
