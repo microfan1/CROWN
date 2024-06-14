@@ -1,4 +1,4 @@
-function w = GetWeights_TEOnly(inv_Sigma, mu, Xi)
+function w = GetWeights_TE(inv_Sigma, mu, Xi)
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
     %Xi is risk aversion factor
