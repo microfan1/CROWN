@@ -1,4 +1,4 @@
-function w = GetWeights_TEWCNB(inv_Sigma, mu, Xi, oneR, omega)
+function w = GetWeights_TEWC_Ineq(inv_Sigma, mu, Xi, oneR, omega)
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
     %Xi is risk aversion factor
