@@ -1,0 +1,67 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(nlshrink)
+> library(R.matlab)
+R.matlab v3.7.0 (2022-08-25 21:52:34 UTC) successfully loaded. See ?R.matlab for help.
+
+Attaching package: 'R.matlab'
+
+The following objects are masked from 'package:base':
+
+    getOption, isOpen
+
+> library(PDSCE)
+> 
+> #Remember to change this path
+> base_path <- 'E:/elective/RA/CUHK/Tutorial/code/methods/SF-NLS'
+> Data <- readMat(file.path(base_path, 'to_SF-NLS_R.mat'))
+> Y <- Data$R
+> 
+> fact = rowMeans(Y)
+> #fact = t(Data$fac)
+> 
+> factm = lm(Y ~ fact)
+> loadings = matrix(coef(factm)[2,])
+> res = residuals(factm)
+> variances = apply(res,2,var)
+> 
+> variances = diag(variances)
+> 
+> sigmaf = loadings%*%var(fact)%*%t(loadings) + variances
+> sqrtsigf = expm::sqrtm(sigmaf)
+> sqrtsigfinv = chol2inv(chol(sqrtsigf))
+> 
+> Yadj = Y%*% sqrtsigfinv
+> 
+> sigmahat = nlshrink_cov(Yadj, k=1) # compute non-linear shrinkage estimate
+Estimating population eigenvalues...> 
+> sigma = sqrtsigf %*% sigmahat%*%sqrtsigf
+> 
+> 
+> write.table(sigma,
++             file = file.path(base_path, 
++                              'Sigma_SF-NLS.csv'),
++             col.names=F,row.names=F,sep=',') 
+> 
+> proc.time()
+   user  system elapsed 
+   1.95    0.17    8.48 

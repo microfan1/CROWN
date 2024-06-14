@@ -1,0 +1,66 @@
+
+R version 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(R.matlab)
+R.matlab v3.7.0 (2022-08-25 21:52:34 UTC) successfully loaded. See ?R.matlab for help.
+
+Attaching package: 'R.matlab'
+
+The following objects are masked from 'package:base':
+
+    getOption, isOpen
+
+> library(glmnet)
+Loading required package: Matrix
+Loaded glmnet 4.1-8
+> 
+> #Remember to change this path
+> base_path <- 'E:/elective/RA/CUHK/Tutorial/code/methods/NODEWISE'
+> 
+> source(file.path(base_path, 'Nodewise_source.R'))
+> 
+> Data <- readMat(file.path(base_path, 'to_Nodewise_R.mat'))
+> y  =  Data$R
+> 
+> sigma_nw_list = est_ndwcov(y,'GIC')
+> sigma_nw = sigma_nw_list[[2]]
+> 
+> write.table(sigma_nw,
++             file = file.path(base_path, 
++                              'inv_Sigma_nw.csv'),
++             col.names=F,
++             row.names=F,
++             sep=',') 
+> 
+> fac = Data$fac
+> sigma_nw_factor = est_ndwcov_factor(y,t(fac),'GIC')
+> 
+> write.table(sigma_nw_factor,
++             file = file.path(base_path, 
++                              'inv_Sigma_nw_factor.csv'),
++             col.names=F,
++             row.names=F,
++             sep=',') 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+   2.01    0.10    8.32 
