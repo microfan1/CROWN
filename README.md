@@ -6,13 +6,13 @@ This repository provides the code needed to compute the CROWN method for **C**on
 
 Firstly, we need an estimator of precision matrix for the return data.
 
-This repository shows the method **CROWN** along with 4 other popular methods:
+This repository shows the method **CROWN** using a residual-based nodewise regression to get the estimate of covariance, along with 4 other popular methods:
 1. **NODEWISE** from [A Nodewise Regression Approach to Estimating Large Portfolios]
 2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
 3. **NLS**  from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 
-The paper detailing the theory and methodology behind the CROWN estimator is publicly available and can be accessed at [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
+The paper detailing the methodology for the CROWN estimator is available at [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
 
 
 ## 2. Required packages
@@ -167,7 +167,9 @@ Use these code to estimate precision matrix:
 
 Callot, L., M. Caner, O. Onder, and E. Ulasan (2021). A nodewise regression approach to estimating large portfolios. Journal of Business and Economic Statistics 39, 520–531.
 
-Caner, M., Fan, Q., & Li, Y. (2024). Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints. arXiv preprint arXiv:2402.17523.
+Caner, M., Fan, Q., and Li, Y. (2024). Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints. arXiv preprint arXiv:2402.17523.
+
+Caner, M., Medeiros, M., and G. Vasconcelos (2023). Sharpe Ratio analysis in high dimensions: Residual-based nodewise regression in factor models. Journal of Econometrics 235 (2), 393-417.
 
 Fan, J., Y. Liao, and M. Mincheva (2013). Large covariance estimation by thresholding principal orthogonal complements. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 75 (4), 603–680.
 
