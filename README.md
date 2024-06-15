@@ -1,4 +1,4 @@
-Crown Tutorial
+Crown
 ================
 
 ## 1. Overview
