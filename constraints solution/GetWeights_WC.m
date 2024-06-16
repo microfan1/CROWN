@@ -6,7 +6,7 @@ function w = GetWeights_WC(inv_Sigma, mu, wx, delta, oneR)
     %omega is the weights sum of selected stocks;
     One = ones(size(mu));
     a=inv_Sigma*One/(One'*inv_Sigma*One);
-    B1 = One'*inv_Sigma*One;
+    B1 = One'*inv_Sigma*mu;
     kw = One'*inv_Sigma*mu/delta;
     k = inv_Sigma*oneR/(One'*inv_Sigma*oneR);
     wk = oneR'*inv_Sigma*oneR/(oneR'*inv_Sigma*One);
