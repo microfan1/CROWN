@@ -1,9 +1,9 @@
 function w = GetWeights_WC(inv_Sigma, mu, wx, delta, oneR)
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
-    %delta is the aversion parameter of risk
-    %oneR is the selected stocks list
-    %omega is the weights sum of selected stocksOne = ones(size(mu));
+    %delta is the risk aversion parameter
+    %oneR is the selected constrained stocks list
+    %omega is the weights sum of selected stocks;
     One = ones(size(mu));
     a=inv_Sigma*One/(One'*inv_Sigma*One);
     B1 = One'*inv_Sigma*One;
