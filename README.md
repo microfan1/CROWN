@@ -97,18 +97,18 @@ Use these code to estimate precision matrix:
   inv_Sigma_nw = csvread(fullfile(pwd,'\covariance estimation\NODEWISE\inv_Sigma_nw.csv'));
 
 %CROWN
-  addpath covariance estimation\CROWN
-  addpath covariance estimation\CROWN\glmnet_matlab
+  addpath('covariance estimation\CROWN')
+  addpath('covariance estimation\CROWN\glmnet_matlab')
   O=crown(R);
   inv_Sigma_crown=O-O*beta/(eye(k)+beta'*(O+O')/2*beta)*beta'*O;
 
 %POET
-  addpath covariance estimation\POET
+  addpath('covariance estimation\POET')
   Sigma_poet = POET(R,fullfile(pwd,'\covariance estimation\POET'),Rpath);
   inv_Sigma_poet=inv(Sigma_poet);
 
 %NLS
-  addpath covariance estimation\NLS
+  addpath('covariance estimation\NLS')
   Sigma_nls=nls_covMarket(R);
   inv_Sigma_nls=inv(Sigma_nls);
 
