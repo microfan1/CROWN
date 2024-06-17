@@ -3,7 +3,7 @@ library(R.matlab)
 library(PDSCE)
 
 #Remember to change this path
-base_path <- 'E:/elective/RA/CUHK/Tutorial/code/methods/SF-NLS'
+base_path <- 'E:/elective/RA/CUHK/Tutorial/code/covariance estimation/SF-NLS'
 Data <- readMat(file.path(base_path, 'to_SF-NLS_R.mat'))
 Y <- Data$R
 
