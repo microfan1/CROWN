@@ -2,7 +2,7 @@ library(openxlsx)
 library(R.matlab)
 
 #Remember to change this path
-setwd("E:/elective/RA/CUHK/Tutorial/code/methods/POET/")
+setwd("E:/elective/RA/CUHK/Tutorial/code/covariance estimation/POET/")
 source('./POET/R/zPOET.R')
 Y<-t(readMat("data_temp.mat")$Return)
 K<- POETKhat(Y)$K2HL
