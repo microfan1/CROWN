@@ -8,15 +8,15 @@ function w = GetWeights_TEWC_Ineq(inv_Sigma, mu, Xi, oneR, omega)
     a=inv_Sigma*One/(One'*inv_Sigma*One);
     t=inv_Sigma*mu/(One'*inv_Sigma*mu);
     u=t-a;
-    theta=One'*inv_Sigma*mu/Xi;
-    w0=theta*u;
+    kappa=One'*inv_Sigma*mu/Xi;
+    w0=kappa*u;
     k = inv_Sigma*oneR/(One'*inv_Sigma*oneR);
     wk = oneR'*inv_Sigma*oneR/(oneR'*inv_Sigma*One);
     wa = oneR'*inv_Sigma*One/(One'*inv_Sigma*One);
     L = (k-a)/(wk - wa);
     wu = oneR'*inv_Sigma*mu/(One'*inv_Sigma*mu) - wa;
-    if theta*wu >= omega
-        w = (omega - theta*wu)*L + w0;
+    if kappa*wu >= omega
+        w = (omega - kappa*wu)*L + w0;
     else
         w = w0;
     end
