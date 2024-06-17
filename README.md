@@ -103,7 +103,7 @@ Use these code to estimate precision matrix:
   inv_Sigma_crown=O-O*beta/(eye(k)+beta'*(O+O')/2*beta)*beta'*O;
 
 %POET
-  addpath methods\POET
+  addpath covariance estimation\POET
   Sigma_poet = POET(R,fullfile(pwd,'\covariance estimation\POET'),Rpath);
   inv_Sigma_poet=inv(Sigma_poet);
 
