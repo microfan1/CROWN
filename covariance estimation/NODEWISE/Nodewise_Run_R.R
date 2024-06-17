@@ -2,7 +2,7 @@ library(R.matlab)
 library(glmnet)
 
 #Remember to change this path
-base_path <- 'E:/elective/RA/CUHK/Tutorial/code/methods/NODEWISE'
+base_path <- 'E:/elective/RA/CUHK/Tutorial/code/covariance estimation/NODEWISE'
 
 source(file.path(base_path, 'Nodewise_source.R'))
 
