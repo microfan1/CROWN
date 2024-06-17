@@ -29,17 +29,17 @@ install.pacakges(c("R.matlab, glmnet, nlshrink, PDSCE, iterators"))
 Please modify the working path in the R language function, the following is the relevant file path:
 
 ```
-\code\methods\NODEWISE\Nodewise_Run_R.R
+\code\covariance estimation\NODEWISE\Nodewise_Run_R.R
 
-\code\methods\POET\POET_R.R
+\code\covariance estimation\POET\POET_R.R
 
-\code\methods\SF-NLS\SF-NLS_Run_R.R
+\code\covariance estimation\SF-NLS\SF-NLS_Run_R.R
 ```
 
 ## 4. Repository Contents
 This repository contains the Matlab code and R scripts used for the comparison of 5 methods. 
 
-- Methods/
+- covariance estimation/
    - CROWN: 
      - glmnet_matlab: Package used by `crown.m`.
      - `crown.m`: Function to get crown estimator.
@@ -92,30 +92,30 @@ Use `Data_Generation.m` to generate simulation data based on these loading.
 Use these code to estimate precision matrix:
 ```
 %NODEWISE: 
-  save(fullfile(pwd, '\methods\NODEWISE\to_Nodewise_R.mat'),'R','fac')
-  RunRcode(fullfile(pwd,'\methods\NODEWISE\Nodewise_Run_R.R'),Rpath);
-  inv_Sigma_nw = csvread(fullfile(pwd,'\methods\NODEWISE\inv_Sigma_nw.csv'));
+  save(fullfile(pwd, '\covariance estimation\NODEWISE\to_Nodewise_R.mat'),'R','fac')
+  RunRcode(fullfile(pwd,'\covariance estimation\NODEWISE\Nodewise_Run_R.R'),Rpath);
+  inv_Sigma_nw = csvread(fullfile(pwd,'\covariance estimation\NODEWISE\inv_Sigma_nw.csv'));
 
 %CROWN
-  addpath methods\CROWN
-  addpath methods\CROWN\glmnet_matlab
+  addpath covariance estimation\CROWN
+  addpath covariance estimation\CROWN\glmnet_matlab
   O=crown(R);
   inv_Sigma_crown=O-O*beta/(eye(k)+beta'*(O+O')/2*beta)*beta'*O;
 
 %POET
   addpath methods\POET
-  Sigma_poet = POET(R,fullfile(pwd,'\methods\POET'),Rpath);
+  Sigma_poet = POET(R,fullfile(pwd,'\covariance estimation\POET'),Rpath);
   inv_Sigma_poet=inv(Sigma_poet);
 
 %NLS
-  addpath methods\NLS
+  addpath covariance estimation\NLS
   Sigma_nls=nls_covMarket(R);
   inv_Sigma_nls=inv(Sigma_nls);
 
 %SF-NLS
-  save(fullfile(pwd, '\methods\SF-NLS\to_SF-NLS_R.mat'),'R','fac')
-  RunRcode(fullfile(pwd,'\methods\SF-NLS\SF-NLS_Run_R.R'),Rpath);
-  Sigma_sfnls = csvread(fullfile(pwd,'\methods\SF-NLS\Sigma_SF-NLS.csv'));
+  save(fullfile(pwd, '\covariance estimation\SF-NLS\to_SF-NLS_R.mat'),'R','fac')
+  RunRcode(fullfile(pwd,'\covariance estimation\SF-NLS\SF-NLS_Run_R.R'),Rpath);
+  Sigma_sfnls = csvread(fullfile(pwd,'\covariance estimation\SF-NLS\Sigma_SF-NLS.csv'));
   inv_Sigma_sfnls = inv(Sigma_sfnls);
 ```
 
