@@ -120,6 +120,7 @@ Use these code to estimate precision matrix:
 ```
 
 ### 5.3 Get Weights and Performance
+It's worth mentioning that the weights we get fron 'Get_weights' functions are the adjusted version, which means they should be added by tracking index b then become the real weights.
 1. Only Consider Tracing Error Constraint
    
 | Method | TE     | Weight_ER | Risk_ER   | SR_ER   |
