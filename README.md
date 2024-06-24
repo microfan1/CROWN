@@ -58,7 +58,9 @@ This repository contains the Matlab code and R scripts used for the comparison o
 `Example.mlx` shows how to use crown and 4 baseline methods for portfolios with 4 kinds of constraints. They are portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
 
 Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `POET_R.R` and `SF-NLS_Run_R.R` first.
-
+```
+For data loading below, feel free to change them (or load your own data in similar format):
+```
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
 2. 3 factors with 150 observations;
@@ -76,9 +78,7 @@ TEC = 0.2;
 oneR = [ones(10,1);zeros(p-10,1)];
 omega = 0.2;
 ```
-Change parameters to suit your demand. For data loading below, feel free to change them if you want:
 
-```
 %3-Factor
 flag=3;k = 3;
 %Data Loading 
