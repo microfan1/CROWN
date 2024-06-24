@@ -61,8 +61,9 @@ Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `
 
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
-2. Let Tracking Error constraint equals 0.2;
-3. Let sum of first 10 weights equals to 0.2 for weights constraint.
+2. 3 factors with 150 observations;
+3. Let Tracking Error constraint equals 0.2;
+4. Let sum of first 10 weights equals to 0.2 for weights constraint.
         
 ```
 % Set your portfolio and sample size
@@ -120,7 +121,7 @@ Use these code to estimate precision matrix:
 ```
 
 ### 5.3 Get Weights and Performance
-It's worth mentioning that the weights we get fron 'Get_weights' functions are the adjusted version, which means they should be added by tracking index b then become the real weights.
+It's worth mentioning that the TE constrained weights we get fron 'Get_weights' functions are the differences between the studied portfolio and a benchmark index, which means they should be added by tracking index b to get the real weights.
 1. Only Consider Tracking Error Constraint
    
 | Method | TE     | Weight_ER | Risk_ER   | SR_ER   |
