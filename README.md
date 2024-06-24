@@ -59,14 +59,15 @@ This repository contains the Matlab code and R scripts used for the comparison o
 
 Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `POET_R.R` and `SF-NLS_Run_R.R` first.
 
-For data loading below, feel free to change them (or load your own data in similar format):
-
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
 2. 3 factors with 150 observations;
 3. Let Tracking Error constraint equals 0.2;
 4. Let sum of first 10 weights equals to 0.2 for weights constraint.
-        
+
+
+For data loading below, feel free to change them (or load your own data in similar format):
+
 ```
 % Set your portfolio and sample size
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
