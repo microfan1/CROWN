@@ -77,7 +77,6 @@ TEC = 0.2;
 % Set your Weights Constraint
 oneR = [ones(10,1);zeros(p-10,1)];
 omega = 0.2;
-```
 
 %3-Factor
 flag=3;k = 3;
@@ -87,7 +86,9 @@ bf = [0.005,0,0;0,0.005,0;0,0,0.005];% B Ft + et
 mu_f=[0.005,0.005,0.005]';%kx1
 cov_f = eye(3);
 ```
-Use `Data_Generation.m` to generate simulation data based on these loading. 
+
+```
+Use `Data_Generation.m` to generate simulation data based on these parameters. 
 ```
 ### 5.2 Estimation of 5 methods
 Use these code to estimate precision matrix:
