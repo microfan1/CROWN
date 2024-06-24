@@ -1,9 +1,10 @@
 function w = GetWeights_WC(inv_Sigma, mu, wx, delta, oneR)
+    %It's worth mentioning that the weights we get here is an adjusted version, which means it should be added by tracking index b then becomes the real one.
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
     %delta is the risk aversion parameter
     %oneR is the selected constrained stocks list
-    %omega is the weights sum of selected stocks;
+    %wx(omega) is the weights sum of selected stocks;
     One = ones(size(mu));
     a=inv_Sigma*One/(One'*inv_Sigma*One);
     B1 = One'*inv_Sigma*mu;
