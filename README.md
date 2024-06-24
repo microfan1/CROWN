@@ -61,14 +61,14 @@ Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `
 
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
-2. Let Tracing Error constraint equals 0.2;
+2. Let Tracking Error constraint equals 0.2;
 3. Let sum of first 10 weights equals to 0.2 for weights constraint.
         
 ```
 % Set your portfolio and sample size
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
 
-% Set your Tracing Error Constraint
+% Set your Tracking Error Constraint
 TEC = 0.2;
 
 % Set your Weights Constraint
@@ -121,7 +121,7 @@ Use these code to estimate precision matrix:
 
 ### 5.3 Get Weights and Performance
 It's worth mentioning that the weights we get fron 'Get_weights' functions are the adjusted version, which means they should be added by tracking index b then become the real weights.
-1. Only Consider Tracing Error Constraint
+1. Only Consider Tracking Error Constraint
    
 | Method | TE     | Weight_ER | Risk_ER   | SR_ER   |
 |--------|--------|-----------|-----------|---------|
@@ -143,7 +143,7 @@ It's worth mentioning that the weights we get fron 'Get_weights' functions are t
 | SFNL   | 4.7034    | 37.5961   | 1620.80   | 0.1983   |
 
 
-3. Tracing Error + Weights Constraint
+3. Tracking Error + Weights Constraint
 
 | Method | TE     | Weight_ER | Risk_ER   | SR_ER   |
 |--------|--------|-----------|-----------|---------|
@@ -154,7 +154,7 @@ It's worth mentioning that the weights we get fron 'Get_weights' functions are t
 | SFNL   | 4.9807 | 37.2932   | 7.0947    | 0.1976  |
 
 
-4. Tracing Error +  Weights Constraint though non-binding 
+4. Tracking Error +  Weights Constraint though non-binding 
 
 | Method | TE     | Weight_ER | Risk_ER   | SR_ER   |
 |--------|--------|-----------|-----------|---------|
