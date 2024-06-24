@@ -78,7 +78,7 @@ TEC = 0.2;
 oneR = [ones(10,1);zeros(p-10,1)];
 omega = 0.2;
 ```
-
+```
 %3-Factor
 flag=3;k = 3;
 %Data Loading 
