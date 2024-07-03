@@ -102,7 +102,7 @@ Use these code to estimate precision matrix:
 %CROWN
   addpath('covariance estimation\CROWN')
   addpath('covariance estimation\CROWN\glmnet_matlab')
-  O=crown(R);
+  O=crown(res);
   inv_Sigma_crown=O-O*beta/(eye(k)+beta'*(O+O')/2*beta)*beta'*O;
 
 %POET
