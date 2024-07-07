@@ -103,7 +103,12 @@ Use these code to estimate precision matrix:
   addpath('covariance estimation\CROWN\glmnet_matlab')
   O=crown(res);
   inv_Sigma_crown=O-O*beta/(eye(k)+beta'*(O+O')/2*beta)*beta'*O;
+  %Note: we use eye(k) for estimated cov(f_t) here for we set this in data loading. The more proper way is to use this estimation.
+```
+![15}$6UG~X@5ZYTBT5MU1C$P](https://github.com/BruceSheng1202/Crown_Tutorial/assets/111191410/c05ffb7d-9cf8-4b34-acb5-6b2691fe74d6)
 
+Continue with precision matrix estimation.
+```
 %POET
   addpath('covariance estimation\POET')
   Sigma_poet = POET(R,fullfile(pwd,'\covariance estimation\POET'),Rpath);
