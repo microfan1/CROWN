@@ -85,7 +85,7 @@ flag=3;k = 3;
 beta_total=mvnrnd([0.001,0.001,0.001],0.1.*eye(3),p);
 bf = [0.005,0,0;0,0.005,0;0,0,0.005];% B Ft + et
 mu_f=[0.005,0.005,0.005]';%kx1
-cov_f = eye(3);
+cov_f = eye(3); % Used for simulation
 ```
 
 Use `Data_Generation.m` to generate simulation data based on these parameters. 
@@ -102,14 +102,8 @@ Use these code to estimate precision matrix:
   addpath('covariance estimation\CROWN')
   addpath('covariance estimation\CROWN\glmnet_matlab')
   O=crown(res);
-  inv_Sigma_crown=O-O*beta/(eye(k)+beta'*(O+O')/2*beta)*beta'*O;
-  %Note: we use eye(k) for estimated cov(f_t) here for we set this in data loading.
-```
-The more proper way is to use this estimation.
-![15}$6UG~X@5ZYTBT5MU1C$P](https://github.com/BruceSheng1202/Crown_Tutorial/assets/111191410/c05ffb7d-9cf8-4b34-acb5-6b2691fe74d6)
+  inv_Sigma_crown=O-O*beta/(inv(cov_f)+beta'*(O+O')/2*beta)*beta'*O;
 
-Continue with precision matrix estimation.
-```
 %POET
   addpath('covariance estimation\POET')
   Sigma_poet = POET(R,fullfile(pwd,'\covariance estimation\POET'),Rpath);
