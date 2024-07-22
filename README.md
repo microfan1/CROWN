@@ -62,8 +62,9 @@ Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
 2. 3 factors with 150 observations;
-3. Let Tracking Error constraint equals 0.2;
+3. Let Tracking Error constraint equals 0.5;
 4. Let sum of first 10 weights equals to 0.2 for weights constraint.
+5. Let delta equals to 0.5 for risk aversion parameter in weight only problem.
 
 
 For data loading below, feel free to change them (or load your own data in similar format):
@@ -73,7 +74,7 @@ For data loading below, feel free to change them (or load your own data in simil
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
 
 % Set your Tracking Error Constraint
-TEC = 0.2;
+TEC = 0.5;
 
 % Set your Weights Constraint
 oneR = [ones(10,1);zeros(p-10,1)];
@@ -89,7 +90,7 @@ delta = 0.5;
 
 %3-Factor
 flag=3;k = 3;
-%Data Loading 
+%This Data Loading is used in Crown Draft 
 beta_total=mvnrnd([0.005,0.005,0.005],0.1.*eye(3),p);
 bf = [0.03,0,0;0,-0.05,0;0,0,-0.05];% B Ft + et
 mu_f=[-0.1,0.1,0.1]';%kx1
@@ -135,44 +136,43 @@ It's worth mentioning that the TE constrained weights we get fron 'Get_weights' 
    
 | Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
 |--------|--------|-----------|-----------|---------|---------|
-| NW     | 2.3861 | 6.1154    | 145.9704  |**0.1678**|**0.0131**|
-| CROWN  |**0.2050**| **1.0000**| **0.5137**    | 0.1548  | 0.1599  |
-| POET   | 0.5137  | 38.007    | 16.7995   | 0.1425  | 0.2883  |
-| NLS    | 0.2982  | 41.181    | 13.8152   | 0.1432  | 0.2807  |
-| SF-NLS | 0.3000  | 24.323    | 6.7756    | 0.1496  | 0.2155  |
+| NW     | 5.9653 | 14.9595   | 125.8946  | **0.1678**  | 0.0185  |
+| CROWN  | **0.5126** | **0.4497**    | **0.00004210**| 0.1658  | **0.0065**  |
+| POET   | 1.2842 | 9.2783    | 13.7568   | 0.1432  | 0.2589  |
+| NLS    | 0.7456 | 10.1683   | 11.3073   | 0.1435  | 0.2555  |
+| SF-NLS | 0.7501 | 5.6867    | 5.2606    | 0.1510  | 0.1755  |
 
 2. Only consider Weights Constraint
 
 
-| Method | TE       | Weight_ER | Risk_ER | SR       | SR_ER    |
-|--------|----------|-----------|----------|----------|----------|
-| NW     | 4.0267   | 10.5873   | 413.4562 |**0.1678**|**0.0126**|
-| CROWN  |**0.3299**|**1.0085**|**2.1740**| 0.1602   | 0.0997   |
-| POET   | 0.8269   | 6.2204    | 44.5281  | 0.1430   | 0.2827   |
-| NLS    | 0.4802   | 7.0339    | 37.6595  | 0.1419   | 0.2941   |
-| SF-NLS | 0.4741   | 4.1337    | 18.1247  | 0.1492   | 0.2189   |
-
+| Method | TE      | Weight_ER | Risk_ER  | SR      | SR_ER   |
+|--------|---------|-----------|-----------|---------|---------|
+| NW     | 4.0267  | 10.1440   | 129.7598  | **0.1678**  | 0.0867  |
+| CROWN  | **0.3299**  | **0.3252**| **0.0014**| 0.1602  | **0.0092**  |
+| POET   | 0.8269  | 6.0460    | 13.3640   | 0.1430  | 0.2105  |
+| NLS    | 0.4802  | 6.9009    | 11.1970   | 0.1419  | 0.2232  |
+| SF-NLS | 0.4741  | 3.8202    | 5.0338    | 0.1492  | 0.1404  |
 
 3. Tracking Error + Weights Constraint
 
-| Method | TE       | Weight_ER | Risk_ER | SR       | SR_ER    |
-|--------|----------|-----------|----------|----------|----------|
-| NW     | 2.3892   | 6.1621    | 146.7423 |**0.1677**|**0.0138**|
-| CROWN  |**0.2190**|**1.0004**|**0.6860**| 0.1469   | 0.2428   |
-| POET   | 0.5188   | 3.9100    | 17.2674  | 0.1418   | 0.2945   |
-| NLS    | 0.3004   | 4.2233    | 14.1778  | 0.1425   | 0.2882   |
-| SF-NLS | 0.3042   | 2.5412    | 7.0002   | 0.1483   | 0.2287   |
+| Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
+|--------|--------|-----------|-----------|---------|---------|
+| NW     | 5.9660 | 14.9389   | 123.1144  | **0.1678**  | 0.0396  |
+| CROWN  | **0.5164** | **0.4726**    | **0.00005900**| 0.1640  | **0.0077**  |
+| POET   | 1.2796 | 9.1145    | 13.2629   | 0.1434  | 0.2412  |
+| NLS    | 0.7457 | 10.1618   | 11.0449   | 0.1435  | 0.2403  |
+| SF-NLS | 0.7497 | 5.6423    | 5.1530    | 0.1509  | 0.1599  |
 
 
 4. Tracking Error +  Weights Constraint though non-binding 
 
 | Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
 |--------|--------|-----------|-----------|---------|---------|
-| NW     | 2.3861 | 6.1154    | 145.9704  |**0.1678**|**0.0131**|
-| CROWN  |**0.2050**| **1.0000**| **0.5137**    | 0.1548  | 0.1599  |
-| POET   | 0.5137  | 38.007    | 16.7995   | 0.1425  | 0.2883  |
-| NLS    | 0.2982  | 41.181    | 13.8152   | 0.1432  | 0.2807  |
-| SF-NLS | 0.3000  | 24.323    | 6.7756    | 0.1496  | 0.2155  |
+| NW     | 5.9653 | 14.9595   | 125.8946  | **0.1678**  | 0.0185  |
+| CROWN  | **0.5126** | **0.4497**    | **0.00004210**| 0.1658  | **0.0065**  |
+| POET   | 1.2842 | 9.2783    | 13.7568   | 0.1432  | 0.2589  |
+| NLS    | 0.7456 | 10.1683   | 11.3073   | 0.1435  | 0.2555  |
+| SF-NLS | 0.7501 | 5.6867    | 5.2606    | 0.1510  | 0.1755  |
 
 ## References
 
