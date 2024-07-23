@@ -78,19 +78,19 @@ TEC = 0.5;
 
 % Set your Weights Constraint
 oneR = [ones(10,1);zeros(p-10,1)];
-omega = 0.2;
+wx = 0.2;
 
-% Define Xi for tracking error
+% Define Xi the risk aversion parameter for the given tracking error, in practice, Xi is user chosen value.
 k0 = (One'*inv_Sigma_pop*mu_pop)/(One'*inv_Sigma_pop*One);
 k0error = mu_pop-k0*One;
 Xi = sqrt(k0error'*inv_Sigma_pop*k0error)/TEC;
 
-%Define delta as risk aversion when only consider weights constraint
+% Define delta as risk aversion when only consider weights constraint
 delta = 0.5;
 
-%3-Factor
+% 3-Factors
 flag=3;k = 3;
-%This Data Loading is used in Crown Draft 
+% This Data loading can be replaced by your own data, such as FF-factors or Q factors.
 beta_total=mvnrnd([0.005,0.005,0.005],0.1.*eye(3),p);
 bf = [0.03,0,0;0,-0.05,0;0,0,-0.05];% B Ft + et
 mu_f=[-0.1,0.1,0.1]';%kx1
@@ -137,7 +137,7 @@ It's worth mentioning that the TE constrained weights we get fron 'Get_weights' 
 | Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
 |--------|--------|-----------|-----------|---------|---------|
 | NW     | 5.9653 | 14.9595   | 125.8946  | **0.1678**  | 0.0185  |
-| CROWN  | **0.5126** | **0.4497**    | **0.00004210**| 0.1658  | **0.0065**  |
+| CROWN  | **0.5126** | **0.4497**    | **0.0000421**| 0.1658  | **0.0065**  |
 | POET   | 1.2842 | 9.2783    | 13.7568   | 0.1432  | 0.2589  |
 | NLS    | 0.7456 | 10.1683   | 11.3073   | 0.1435  | 0.2555  |
 | SF-NLS | 0.7501 | 5.6867    | 5.2606    | 0.1510  | 0.1755  |
@@ -158,7 +158,7 @@ It's worth mentioning that the TE constrained weights we get fron 'Get_weights' 
 | Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
 |--------|--------|-----------|-----------|---------|---------|
 | NW     | 5.9660 | 14.9389   | 123.1144  | **0.1678**  | 0.0396  |
-| CROWN  | **0.5164** | **0.4726**    | **0.00005900**| 0.1640  | **0.0077**  |
+| CROWN  | **0.5164** | **0.4726**    | **0.000059**| 0.1640  | **0.0077**  |
 | POET   | 1.2796 | 9.1145    | 13.2629   | 0.1434  | 0.2412  |
 | NLS    | 0.7457 | 10.1618   | 11.0449   | 0.1435  | 0.2403  |
 | SF-NLS | 0.7497 | 5.6423    | 5.1530    | 0.1509  | 0.1599  |
@@ -169,7 +169,7 @@ It's worth mentioning that the TE constrained weights we get fron 'Get_weights' 
 | Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
 |--------|--------|-----------|-----------|---------|---------|
 | NW     | 5.9653 | 14.9595   | 125.8946  | **0.1678**  | 0.0185  |
-| CROWN  | **0.5126** | **0.4497**    | **0.00004210**| 0.1658  | **0.0065**  |
+| CROWN  | **0.5126** | **0.4497**    | **0.0000421**| 0.1658  | **0.0065**  |
 | POET   | 1.2842 | 9.2783    | 13.7568   | 0.1432  | 0.2589  |
 | NLS    | 0.7456 | 10.1683   | 11.3073   | 0.1435  | 0.2555  |
 | SF-NLS | 0.7501 | 5.6867    | 5.2606    | 0.1510  | 0.1755  |
