@@ -7,7 +7,7 @@ This repository provides the code needed to compute the CROWN method for **C**on
 Firstly, we need an estimator of covariance/precision matrix for the return data.
 
 This repository shows the method **CROWN** using a residual-based nodewise regression (Caner, Medeiros and Vasconcelos, 2023, J. Econom.) to get the estimate of the covariance, along with 4 other popular methods:
-1. **NODEWISE** from [A Nodewise Regression Approach to Estimating Large Portfolios]
+1. **nodewise** from [A Nodewise Regression Approach to Estimating Large Portfolios]
 2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
 3. **NLS**  from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
@@ -44,8 +44,8 @@ This repository contains the Matlab code and R scripts used for the comparison o
      - glmnet_matlab: Package used by `crown.m`.
      - `crown.m`: Function to get crown estimator.
    - NLS:
-     - `nls_covMarket.m`: Function to get nls estimator.
-   - NODEWISE: 
+     - `nls_covMarket.m`: Function to get nonlinear shrinkage estimator.
+   - nodewise: 
      - `Nodewise_Run_R.R`: Function to get Nodewise estimator.
      - `Nodewise_source.R`: Functions used by `Nodewise_Run_R.R`.
    - POET:
@@ -53,7 +53,7 @@ This repository contains the Matlab code and R scripts used for the comparison o
      - `POET.m`: Code to link R and Matlab.
      - `POET_R.R`: Code to get POET estimator.
    - SF-NLS:
-     - `SF-NLS_Run_R.R`: Code to get SF-NLS estimator.
+     - `SF-NLS_Run_R.R`: Code to get single-factor nonlinear shrinkage estimator.
 ## 5. Example of Usage
 `Example.mlx` shows how to use CROWN and four other baseline methods for constructing portfolios with different kinds of constraints. Specifically, we consider portfolios with tracking error (TE) constraints, portfolios with tracking error jointly with weight constraints (TEWC), and portfolios with only weight constraints (WC). 
 
@@ -62,8 +62,8 @@ Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
 2. 3 factors;
-3. Set Tracking Error constraint equals 0.5;
-4. Set sum of first 10 weights equals to 0.2 for weights constraint.
+3. Set Tracking Error constraint equals 0.5 (i.e., TE<=0.5);
+4. Set sum of first 10 weights equals to 0.2 for weights constraint (i.e., the restricted vector of assets takes value of 1 for the first 10 assets, and 0 for the rest 170 assets, if the benchmark index has first 10 .
 5. Set delta equals to 0.5 for risk aversion parameter in weight-constraint-only problem.
 
 
