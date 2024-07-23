@@ -1,4 +1,4 @@
-function w = GetWeights_WC(inv_Sigma, mu, omega, delta, oneR, b)
+function w = GetWeights_WC(inv_Sigma, mu, wx, delta, oneR, m)
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
     %delta is the aversion parameter of risk
@@ -13,6 +13,6 @@ function w = GetWeights_WC(inv_Sigma, mu, omega, delta, oneR, b)
     wa = oneR'*inv_Sigma*One/(One'*inv_Sigma*One);
     L = (k-a)/(wk - wa);
     wu = oneR'*inv_Sigma*mu/(One'*inv_Sigma*mu) - wa;
-    wx = omega - oneR'*b;
-    w = (kw*(inv_Sigma*mu/B1-a)+(wx-kw*wu)*L) + (a-L*wa) + b;
+    omega = wx - oneR'*m;
+    w = (kw*(inv_Sigma*mu/B1-a)+(omega-kw*wu)*L) + (a-L*wa) + m;
 end
