@@ -6,7 +6,7 @@ This repository provides the code needed to compute the CROWN method for **C**on
 
 Firstly, we need an estimator of covariance/precision matrix for the return data.
 
-This repository shows the method **CROWN** using a residual-based nodewise regression (Caner, Medeiros and Vasconcelos, 2023, J. Econom.) to get the estimate of the covariance, along with 4 other popular methods:
+This repository gives the implementation code for **CROWN** which uses a residual-based nodewise regression (Caner, Medeiros and Vasconcelos, 2023, J. Econom.) to get the estimate of the covariance, along with 4 other popular methods:
 1. **nodewise** from [A Nodewise Regression Approach to Estimating Large Portfolios]
 2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
 3. **NLS**  from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
@@ -37,7 +37,7 @@ Please modify the working path in the R language function, the following is the 
 ```
 
 ## 4. Repository Contents
-This repository contains the Matlab code and R scripts used for the comparison of 5 methods. 
+This repository contains the Matlab and R scripts used for the implementation of the aforementioned 5 methods. 
 
 - covariance estimation/
    - CROWN: 
@@ -54,12 +54,12 @@ This repository contains the Matlab code and R scripts used for the comparison o
      - `POET_R.R`: Code to get POET estimator.
    - SF-NLS:
      - `SF-NLS_Run_R.R`: Code to get single-factor nonlinear shrinkage estimator.
-## 5. Example of Usage
-`Example.mlx` shows how to use CROWN and four other baseline methods for constructing portfolios with different kinds of constraints. Specifically, we consider portfolios with tracking error (TE) constraints, portfolios with tracking error jointly with weight constraints (TEWC), and portfolios with only weight constraints (WC). 
+## 5. Examples of Portfolio Construction under Constraints
+`Example.mlx` exemplifies how to use CROWN and four other baseline methods for constructing portfolios with different kinds of constraints. Specifically, we consider portfolios with tracking error (TE) constraints, portfolios with tracking error jointly with weight constraints (TEWC), and portfolios with only weight constraints (WC). 
 
 Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `POET_R.R` and `SF-NLS_Run_R.R` first.
 
-### 5.1 Example and Data Loading: 
+### 5.1 Generation of Example Data: 
 1. 180 stocks (assets) with 150 trading records;
 2. 3 factors;
 3. Set Tracking Error constraint equals 0.5 (i.e., TE<=0.5);
@@ -67,30 +67,30 @@ Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `
 5. Set delta equals to 0.5 for risk aversion parameter in weight-constraint-only problem.
 
 
-For data loading below, feel free to change them (or load your own data in similar format):
+For calibrated data simulations, just change the parameters (or load the real data in similar format):
 
 ```
-% Set your portfolio and sample size
+% Set the portfolio and sample size
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
 
-% Set your Tracking Error Constraint
+% Set the Tracking Error Constraint (e.g., required by the fund manager)
 TEC = 0.5;
 
-% Set your Weights Constraint
+% Set the Weights Constraint, here we restrict the first 10 stocks, whose weights sum up to 0.2
 oneR = [ones(10,1);zeros(p-10,1)];
 wx = 0.2;
 
-% Define Xi the risk aversion parameter for the given tracking error, in practice, Xi is user chosen value.
+% Define Xi the risk aversion parameter for the given tracking error, in practice, Xi is a user defined value.
 k0 = (One'*inv_Sigma_pop*mu_pop)/(One'*inv_Sigma_pop*One);
 k0error = mu_pop-k0*One;
 Xi = sqrt(k0error'*inv_Sigma_pop*k0error)/TEC;
 
-% Define delta as risk aversion when only consider weights constraint
+% Define delta as risk aversion when only consider weights constraint, in practice, delta is a user defined value.
 delta = 0.5;
 
 % 3-Factors
-flag=3;k = 3;
-% This Data loading can be replaced by your own data, such as FF-factors or Q factors.
+flag=3; k=3;
+% The following data loading can be replaced by user's own data, such as FF-factors or Q factors.
 beta_total=mvnrnd([0.005,0.005,0.005],0.1.*eye(3),p);
 bf = [0.03,0,0;0,-0.05,0;0,0,-0.05];% B Ft + et
 mu_f=[-0.1,0.1,0.1]';%kx1
@@ -99,8 +99,8 @@ cov_f = eye(3); % Used for simulation
 
 Use `Data_Generation.m` to generate simulation data based on these parameters. 
 
-### 5.2 Estimation of 5 methods
-Use these code to estimate precision matrix:
+### 5.2 Estimation of Precision Matrix
+The code to estimate precision matrix by different methods:
 ```
 %NODEWISE: 
   save(fullfile(pwd, '\covariance estimation\NODEWISE\to_Nodewise_R.mat'),'R','fac')
@@ -130,7 +130,7 @@ Use these code to estimate precision matrix:
   inv_Sigma_sfnls = inv(Sigma_sfnls);
 ```
 
-### 5.3 Get Weights and Performance
+### 5.3 Get Weights and Report Performance
 
 1. Only Consider Tracking Error Constraint
    
@@ -158,7 +158,7 @@ Use these code to estimate precision matrix:
 | Method | TE      | Weight_ER | Risk_ER   | SR      | SR_ER   |
 |--------|---------|-----------|------------|---------|---------|
 | NW     | 4.0611  | 10.1376   | 97.3979    | **0.1677**  | 0.2604  |
-| CROWN  | **0.3714**  | **0.3159**    | **0.00017780**| 0.1489  | **0.0072**  |
+| CROWN  | **0.3714**  | **0.3159**    | **0.0001778**| 0.1489  | **0.0072**  |
 | POET   | 0.8711  | 6.0122    | 10.2111    | 0.1422  | 0.0936  |
 | NLS    | 0.5027  | 6.8975    | 8.5352     | 0.1415  | 0.1027  |
 | SF-NLS | 0.5010  | 3.8191    | 3.8925     | 0.1475  | 0.0248  |
