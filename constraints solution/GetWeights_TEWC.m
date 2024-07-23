@@ -1,4 +1,4 @@
-function w = GetWeights_TEWC(inv_Sigma, mu, Xi, oneR, omega, b)
+function w = GetWeights_TEWC(inv_Sigma, mu, Xi, oneR, wx, m)
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
     %Xi is risk aversion factor
@@ -8,12 +8,13 @@ function w = GetWeights_TEWC(inv_Sigma, mu, Xi, oneR, omega, b)
     a=inv_Sigma*One/(One'*inv_Sigma*One);
     t=inv_Sigma*mu/(One'*inv_Sigma*mu);
     u=t-a;
-    theta=One'*inv_Sigma*mu/Xi;
-    w0=theta*u;
+    kappa=One'*inv_Sigma*mu/Xi;
+    wd=kappa*u;
     k = inv_Sigma*oneR/(One'*inv_Sigma*oneR);
     wk = oneR'*inv_Sigma*oneR/(oneR'*inv_Sigma*One);
     wa = oneR'*inv_Sigma*One/(One'*inv_Sigma*One);
     L = (k-a)/(wk - wa);
     wu = oneR'*inv_Sigma*mu/(One'*inv_Sigma*mu) - wa;
-    w = (omega - theta*wu)*L + w0 + b;
+    omega = wx - oneR'*m;
+    w = (omega - kappa*wu)*L + wd + m;
 end
