@@ -1,5 +1,4 @@
-function w = GetWeights_TEWC(inv_Sigma, mu, Xi, oneR, omega)
-    %It's worth mentioning that the weights we get here is an adjusted version, which means it should be added by tracking index b then becomes the real one.
+function w = GetWeights_TEWC(inv_Sigma, mu, Xi, oneR, omega, b)
     %inv_Sigma is the estimated precision matrix
     %mu is the mean of return
     %Xi is risk aversion factor
@@ -9,12 +8,12 @@ function w = GetWeights_TEWC(inv_Sigma, mu, Xi, oneR, omega)
     a=inv_Sigma*One/(One'*inv_Sigma*One);
     t=inv_Sigma*mu/(One'*inv_Sigma*mu);
     u=t-a;
-    kappa=One'*inv_Sigma*mu/Xi;
-    w0=kappa*u;
+    theta=One'*inv_Sigma*mu/Xi;
+    w0=theta*u;
     k = inv_Sigma*oneR/(One'*inv_Sigma*oneR);
     wk = oneR'*inv_Sigma*oneR/(oneR'*inv_Sigma*One);
     wa = oneR'*inv_Sigma*One/(One'*inv_Sigma*One);
     L = (k-a)/(wk - wa);
     wu = oneR'*inv_Sigma*mu/(One'*inv_Sigma*mu) - wa;
-    w = (omega - kappa*wu)*L + w0;
+    w = (omega - theta*wu)*L + w0 + b;
 end
