@@ -5,7 +5,7 @@ size(R) = 150 * 180;
 size(fac) = 3 * 150;
 
 
-code for generation(Mainly Settings):
+code for data generation:
 
 % Set your portfolio and sample size (p,N)
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
@@ -13,8 +13,8 @@ pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
 TEC = 0.2;
 % Set your Weights Constraint, first the constrained assets, then the constraint value
 oneR = [ones(10,1);zeros(p-10,1)];
-omega = 0.2;
-%3-Factor
+wx = 0.2;
+%3-Factors
 flag=1;k = 3;
 %Generate Example Data Input Parameters 
 beta_total=mvnrnd([0.001,0.001,0.001],0.1.*eye(3),p);
