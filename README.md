@@ -60,10 +60,10 @@ This repository contains the Matlab code and R scripts used for the comparison o
 Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `POET_R.R` and `SF-NLS_Run_R.R` first.
 
 ### 5.1 Example and Data Loading: 
-1. 180 stocks with 150 trading records;
+1. 180 stocks (assets) with 150 trading records;
 2. 3 factors;
 3. Set Tracking Error constraint equals 0.5 (i.e., TE<=0.5);
-4. Set sum of first 10 weights equals to 0.2 for weights constraint (i.e., the restricted vector of assets takes value of 1 for the first 10 assets, and 0 for the rest 170 assets, if the benchmark index has first 10 .
+4. Set sum of first 10 stocks weights equals to 0.2 for weights constraint (i.e., the restricted vector of assets takes value of 1 for the first 10 assets, and 0 for the rest 170 assets, if the benchmark index has first 10 stocks' weights sum up to 0.2, then \omega=0).
 5. Set delta equals to 0.5 for risk aversion parameter in weight-constraint-only problem.
 
 
