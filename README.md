@@ -2,17 +2,17 @@ Crown
 ================
 
 ## 1. Overview
-This repository provides the code needed to compute the CROWN method for **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n**, which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different methods in obtaining a solution for high dimensional portfolio with a large number of assets. Specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
+This repository provides the code needed to compute the CROWN method for **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n**, which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different state-of-the-art methods in obtaining a solution for high dimensional portfolios with a large number of assets. Regarding the constraints, specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
 
-Firstly, we need an estimator of precision matrix for the return data.
+Firstly, we need an estimator of covariance/precision matrix for the return data.
 
-This repository shows the method **CROWN** using a residual-based nodewise regression to get the estimate of covariance, along with 4 other popular methods:
+This repository shows the method **CROWN** using a residual-based nodewise regression (Caner, Medeiros and Vasconcelos, 2023, J. Econom.) to get the estimate of the covariance, along with 4 other popular methods:
 1. **NODEWISE** from [A Nodewise Regression Approach to Estimating Large Portfolios]
 2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
 3. **NLS**  from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 
-The paper detailing the methodology for the CROWN estimator is available at [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
+The paper detailing the methodology for the CROWN estimator is available at: [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
 
 
 ## 2. Required packages
@@ -55,16 +55,16 @@ This repository contains the Matlab code and R scripts used for the comparison o
    - SF-NLS:
      - `SF-NLS_Run_R.R`: Code to get SF-NLS estimator.
 ## 5. Example of Usage
-`Example.mlx` shows how to use crown and 4 baseline methods for portfolios with 4 kinds of constraints. They are portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
+`Example.mlx` shows how to use CROWN and four other baseline methods for constructing portfolios with different kinds of constraints. Specifically, we consider portfolios with tracking error (TE) constraints, portfolios with tracking error jointly with weight constraints (TEWC), and portfolios with only weight constraints (WC). 
 
 Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `POET_R.R` and `SF-NLS_Run_R.R` first.
 
 ### 5.1 Example and Data Loading: 
 1. 180 stocks with 150 trading records;
-2. 3 factors with 150 observations;
-3. Let Tracking Error constraint equals 0.5;
-4. Let sum of first 10 weights equals to 0.2 for weights constraint.
-5. Let delta equals to 0.5 for risk aversion parameter in weight only problem.
+2. 3 factors;
+3. Set Tracking Error constraint equals 0.5;
+4. Set sum of first 10 weights equals to 0.2 for weights constraint.
+5. Set delta equals to 0.5 for risk aversion parameter in weight-constraint-only problem.
 
 
 For data loading below, feel free to change them (or load your own data in similar format):
