@@ -1,17 +1,14 @@
-function [w_err,w_real,te,risk_hat,V_err,SR_hat,SRerr,risk,SR]=GetPerformance(w_test,w_pop,V,R,mu)  
-    % w_test is the estimated portfolio weights that you want to test the performance
-    % w_pop is the oracle solution (using population parameter)
+function [w_err,te,risk_hat,V_err,SR_hat,SRerr,risk,SR]=GetPerformance(w_test,w_pop,V,R,mu,m)  
+    % w_test is the weights that you wanna test performance
+    % w_pop is the populational solution
     % V is portfolio variance
     % R is return matrix
     % mu is the mean of the return
     One = ones(size(mu));
-    b = One/(length(mu));
-    % Weight Error
+    %Weight Error
     w_err = norm(w_test-w_pop,1);
-    % Real Weights, refer to the paper, w_test is the difference between a portfolio and benchmark index b
-    w_real = w_test + b;
     % Test empirical version, we should use weight itself
-    te =  std(R*w_test - R*b);
+    te =  std(R*w_test - R*m);
     %\hat risk
     risk_hat   =  sqrt(w_test'*V*w_test);
     % Covariance error
