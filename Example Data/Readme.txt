@@ -17,7 +17,9 @@ wx = 0.2;
 %3-Factors
 flag=1;k = 3;
 %Generate Example Data Input Parameters 
+% factor loadings
 beta_total=mvnrnd([0.001,0.001,0.001],0.1.*eye(3),p);
+% factor follows AR(1)
 bf = [0.005,0,0;0,0.005,0;0,0,0.005];% B Ft + et
 mu_f=[0.005,0.005,0.005]';%kx1
 cov_f = eye(3);
