@@ -131,7 +131,7 @@ Use these code to estimate precision matrix:
 ```
 
 ### 5.3 Get Weights and Performance
-It's worth mentioning that the TE constrained weights we get fron 'Get_weights' functions are the differences between the studied portfolio and a benchmark index, which means they should be added by tracking index b to get the real weights.
+
 1. Only Consider Tracking Error Constraint
    
 | Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
@@ -145,23 +145,23 @@ It's worth mentioning that the TE constrained weights we get fron 'Get_weights' 
 2. Only consider Weights Constraint
 
 
-| Method | TE      | Weight_ER | Risk_ER  | SR      | SR_ER   |
-|--------|---------|-----------|-----------|---------|---------|
-| NW     | 4.0267  | 10.1440   | 129.7598  | **0.1678**  | 0.0867  |
-| CROWN  | **0.3299**  | **0.3252**| **0.0014**| 0.1602  | **0.0092**  |
-| POET   | 0.8269  | 6.0460    | 13.3640   | 0.1430  | 0.2105  |
-| NLS    | 0.4802  | 6.9009    | 11.1970   | 0.1419  | 0.2232  |
-| SF-NLS | 0.4741  | 3.8202    | 5.0338    | 0.1492  | 0.1404  |
+| Method | TE      | Weight_ER | Risk_ER     | SR      | SR_ER    |
+|--------|---------|-----------|-------------|---------|----------|
+| NW     | 4.0611  | 10.1376   | 97.3979     | **0.1677**  | 0.2604   |
+| CROWN  | **0.3714**  | **0.3159**    | **0.00017780**  | 0.1489  | **0.0072**   |
+| POET   | 0.8711  | 6.0122    | 10.2111     | 0.1422  | 0.0936   |
+| NLS    | 0.5027  | 6.8975    | 8.5352      | 0.1415  | 0.1027   |
+| SF-NLS | 0.5010  | 3.8191    | 3.8925      | 0.1475  | 0.0248   |
 
 3. Tracking Error + Weights Constraint
 
-| Method | TE     | Weight_ER | Risk_ER   | SR      | SR_ER   |
-|--------|--------|-----------|-----------|---------|---------|
-| NW     | 5.9660 | 14.9389   | 123.1144  | **0.1678**  | 0.0396  |
-| CROWN  | **0.5164** | **0.4726**    | **0.000059**| 0.1640  | **0.0077**  |
-| POET   | 1.2796 | 9.1145    | 13.2629   | 0.1434  | 0.2412  |
-| NLS    | 0.7457 | 10.1618   | 11.0449   | 0.1435  | 0.2403  |
-| SF-NLS | 0.7497 | 5.6423    | 5.1530    | 0.1509  | 0.1599  |
+| Method | TE      | Weight_ER | Risk_ER   | SR      | SR_ER   |
+|--------|---------|-----------|------------|---------|---------|
+| NW     | 4.0611  | 10.1376   | 97.3979    | **0.1677**  | 0.2604  |
+| CROWN  | **0.3714**  | **0.3159**    | **0.00017780**| 0.1489  | **0.0072**  |
+| POET   | 0.8711  | 6.0122    | 10.2111    | 0.1422  | 0.0936  |
+| NLS    | 0.5027  | 6.8975    | 8.5352     | 0.1415  | 0.1027  |
+| SF-NLS | 0.5010  | 3.8191    | 3.8925     | 0.1475  | 0.0248  |
 
 
 4. Tracking Error +  Weights Constraint though non-binding 
