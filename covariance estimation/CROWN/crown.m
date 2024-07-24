@@ -1,7 +1,7 @@
 
 function [Pm,C_hat,T_2_hat] = crown(subdata)
 % subdata  is N by p matrix
-% this function return Nodewise regression Precision matrix estimator(Crown)
+% this function return Residual Nodewise regression Precision matrix estimator(CROWN)
 n = size(subdata,1);
 p = size(subdata,2);
 r_bar = mean(subdata);
