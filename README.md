@@ -1,4 +1,4 @@
-Crown
+CROWN
 ================
 
 ## 1. Overview
@@ -17,6 +17,7 @@ The paper detailing the methodology for the CROWN estimator is available at: [Na
 
 ## 2. Required packages
 You need to download matlab toolbox RunRCode for R functions calling.
+Wei-Rong Chen (2024). RunRcode(RscriptFileName,Rpath) (https://www.mathworks.com/matlabcentral/fileexchange/50071-runrcode-rscriptfilename-rpath), MATLAB Central File Exchange. Retrieved July 24, 2024.
 
 You can install the required package with
 
