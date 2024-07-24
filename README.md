@@ -6,14 +6,12 @@ This repository provides the code needed to compute the CROWN method for **C**on
 
 Firstly, we need an estimator of covariance/precision matrix for the return data.
 
-This repository gives the implementation code for **CROWN** which uses a residual-based nodewise regression (Caner, Medeiros and Vasconcelos, 2023, J. Econom.) to get the estimate of the covariance, along with 4 other popular methods:
-1. **nodewise** from [A Nodewise Regression Approach to Estimating Large Portfolios]
-2. **POET** from [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
-3. **NLS**  from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
-4. **SF-NLS** from [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
+This repository gives the implementation code for **CROWN** which uses a residual-based nodewise regression (Caner, Medeiros and Vasconcelos, 2023, J. Econom.) to get the estimate of the covariance. For comparison it also includes 4 other popular methods:
+1. **nodewise** from Callot et al., 2021, [A Nodewise Regression Approach to Estimating Large Portfolios]
+2. **POET** from Fan et al., 2013, [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
+3. **NLS**  and 4. **SF-NLS** from Ledoit and Wolf, 2017, [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 
 The paper detailing the methodology for the CROWN estimator is available at: [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
-
 
 ## 2. Required packages
 You need to download matlab toolbox RunRCode for R functions calling.
@@ -44,8 +42,6 @@ This repository contains the Matlab and R scripts used for the implementation of
    - CROWN: 
      - glmnet_matlab: Package used by `crown.m`.
      - `crown.m`: Function to get crown estimator.
-   - NLS:
-     - `nls_covMarket.m`: Function to get nonlinear shrinkage estimator.
    - nodewise: 
      - `Nodewise_Run_R.R`: Function to get Nodewise estimator.
      - `Nodewise_source.R`: Functions used by `Nodewise_Run_R.R`.
@@ -53,6 +49,8 @@ This repository contains the Matlab and R scripts used for the implementation of
      - POET: Package used by `POET_R.R`.
      - `POET.m`: Code to link R and Matlab.
      - `POET_R.R`: Code to get POET estimator.
+   - NLS:
+     - `nls_covMarket.m`: Function to get nonlinear shrinkage estimator.
    - SF-NLS:
      - `SF-NLS_Run_R.R`: Code to get single-factor nonlinear shrinkage estimator.
 ## 5. Examples of Portfolio Construction under Constraints
@@ -63,8 +61,8 @@ Please modify the working path and Rpath in `Example.mlx`, `Nodewise_Run_R.R`, `
 ### 5.1 Generation of Example Data: 
 1. 180 stocks (assets) with 150 trading records;
 2. 3 factors;
-3. Set Tracking Error constraint equals 0.5 (i.e., TE<=0.5);
-4. Set sum of first 10 stocks weights equals to 0.2 for weights constraint (i.e., the restricted vector of assets takes value of 1 for the first 10 assets, and 0 for the rest 170 assets, if the benchmark index is equally weighted, meaning the first 10 stocks' weights sum up to 0.056, then \omega=0.144).
+3. Set Tracking Error constraint (e.g., TE<=0.5);
+4. Set weight constraint, e.g., sum of first 10 stocks weights equals to 0.2 (i.e., the restricted vector of assets takes value of 1 for the first 10 assets, and 0 for the rest 170 assets, and wx=0.2).
 5. Set delta equals to 0.5 for risk aversion parameter in weight-constraint-only problem.
 
 
