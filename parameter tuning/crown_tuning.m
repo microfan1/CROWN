@@ -1,5 +1,5 @@
 % subdata  is N by p matrix
-% this function return Nodewise regression Precision matrix estimator (Crown)
+% this function return Nodewise regression Precision matrix estimator (CROWN)
 function [Pm,C_hat,T_2_hat] = crown_tuning(subdata, tuning_method)
 
 if nargin > 1
