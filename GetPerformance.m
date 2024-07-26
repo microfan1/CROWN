@@ -1,4 +1,4 @@
-function [w_err,te,risk_hat,V_err,SR_hat,SRerr,risk,SR]=GetPerformance(w_test,w_pop,V,R,mu,m)  
+function [w_err,te,risk_hat,V_err,SR_hat,SRerr]=GetPerformance(w_test,w_pop,V,R,mu,m)  
     % w_test is the weights that you wanna test performance
     % w_pop is the populational solution
     % V is portfolio variance
@@ -19,8 +19,4 @@ function [w_err,te,risk_hat,V_err,SR_hat,SRerr,risk,SR]=GetPerformance(w_test,w_
     SR_hat = w_test'*mu/risk_hat;
     %Sharpe Ratio Error
     SRerr =  abs((SR_hat/SR_real)^2 - 1);
-    %Portfolio True Risk
-    risk =  sqrt(w_test'*V*w_test);
-    %Sharpe Ratio
-    SR   =  w_test'*mu/risk;
 end
