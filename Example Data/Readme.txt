@@ -18,10 +18,11 @@ wx = 0.2;
 flag=1;k = 3;
 %Generate Example Data Input Parameters 
 % factor loadings
-beta_total=mvnrnd([0.001,0.001,0.001],0.1.*eye(3),p);
+beta_total=mvnrnd([0.005,0.005,0.005],0.1.*eye(3),p);
 % factor follows AR(1)
-bf = [0.005,0,0;0,0.005,0;0,0,0.005];% B Ft + et
-mu_f=[0.005,0.005,0.005]';%kx1
+%Data Loading 
+bf = [0.03,0,0;0,-0.05,0;0,0,-0.05];% B Ft + et
+mu_f=[-0.1,0.1,0.1]';%kx1
 cov_f = eye(3);
 [R_total,mu_pop_total,V_total,~,~,fac_total]=Data_Generation(p,N,flag,beta_total,bf,mu_f,cov_f);
 %R: excess return, fac: factor, res: factor model residual. You can replace R, fac and res with own data
