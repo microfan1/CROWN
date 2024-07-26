@@ -10,20 +10,21 @@ code for data generation:
 % Set your portfolio and sample size (p,N)
 pNpairs = [180,150];p=pNpairs(1);N=pNpairs(2);
 % Set your Tracking Error Constraint
-TEC = 0.2;
+TEC = 0.5;
 % Set your Weights Constraint, first the constrained assets, then the constraint value
 oneR = [ones(10,1);zeros(p-10,1)];
 wx = 0.2;
-%3-Factors
-flag=1;k = 3;
-%Generate Example Data Input Parameters 
-% factor loadings
-beta_total=mvnrnd([0.005,0.005,0.005],0.1.*eye(3),p);
-% factor follows AR(1)
-%Data Loading 
-bf = [0.03,0,0;0,-0.05,0;0,0,-0.05];% B Ft + et
-mu_f=[-0.1,0.1,0.1]';%kx1
+
+% 3-Factors
+flag=3; k=3;
+% The following data loading can be replaced by user's own data, such as FF-factors or Q factors.
+mu_b=[-0.1,0.1,0.1];%kx1
+factor_loading_b=mvnrnd(mu_b,0.1.*eye(3),p);
+alpha1 = 0.03;alpha2 = -0.05;alpha3 = -0.05;
+Phihat = [0.03,0,0;0,alpha2,0;0,0,alpha3];% alpha matrix
+mu_f = [0.005,0.005,0.005]';
 cov_f = eye(3);
+
 [R_total,mu_pop_total,V_total,~,~,fac_total]=Data_Generation(p,N,flag,beta_total,bf,mu_f,cov_f);
 %R: excess return, fac: factor, res: factor model residual. You can replace R, fac and res with own data
 beta=beta_total(1:p,:); %pxk
