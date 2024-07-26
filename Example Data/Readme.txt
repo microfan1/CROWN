@@ -21,7 +21,7 @@ flag=3; k=3;
 mu_b=[-0.1,0.1,0.1];%kx1
 factor_loading_b=mvnrnd(mu_b,0.1.*eye(3),p);
 alpha1 = 0.03;alpha2 = -0.05;alpha3 = -0.05;
-Phihat = [0.03,0,0;0,alpha2,0;0,0,alpha3];% alpha matrix
+alphamtx = [alpha1,0,0;0,alpha2,0;0,0,alpha3];% alpha matrix
 mu_f = [0.005,0.005,0.005]';
 cov_f = eye(3);
 
