@@ -20,7 +20,7 @@ flag=3; k=3;
 % The following data loading can be replaced by user's own data, such as FF-factors or Q factors.
 mu_b=[-0.1,0.1,0.1];%kx1
 factor_loading_b=mvnrnd(mu_b,0.1.*eye(3),p);
-% the factors follow AR(1) process mu_f+alpha f_t-1
+% the factors follow AR(1) process f_t=mu_f+alpha f_t-1+e
 alpha1 = 0.03;alpha2 = -0.05;alpha3 = -0.05;
 alphamtx = [alpha1,0,0;0,alpha2,0;0,0,alpha3];% alpha matrix
 mu_f = [0.005,0.005,0.005]';
