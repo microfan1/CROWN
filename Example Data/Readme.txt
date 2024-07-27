@@ -20,12 +20,13 @@ flag=3; k=3;
 % The following data loading can be replaced by user's own data, such as FF-factors or Q factors.
 mu_b=[-0.1,0.1,0.1];%kx1
 factor_loading_b=mvnrnd(mu_b,0.1.*eye(3),p);
+% the factors follow AR(1) process mu_f+alpha f_t-1
 alpha1 = 0.03;alpha2 = -0.05;alpha3 = -0.05;
 alphamtx = [alpha1,0,0;0,alpha2,0;0,0,alpha3];% alpha matrix
 mu_f = [0.005,0.005,0.005]';
 cov_f = eye(3);
 
-[R_total,mu_pop_total,V_total,~,~,fac_total]=Data_Generation(p,N,flag,beta_total,bf,mu_f,cov_f);
+[R_total,mu_pop_total,V_total,~,~,fac_total]=Data_Generation(p,N,flag,factor_loading_b,alphamtx,mu_f,cov_f);
 %R: excess return, fac: factor, res: factor model residual. You can replace R, fac and res with own data
 beta=factor_loading_b(1:p,:); %pxk
 R=R_total(1:N,1:p);mu_pop=mu_pop_total(1:p);V=V_total(1:p,1:p);
