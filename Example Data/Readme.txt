@@ -27,7 +27,7 @@ cov_f = eye(3);
 
 [R_total,mu_pop_total,V_total,~,~,fac_total]=Data_Generation(p,N,flag,beta_total,bf,mu_f,cov_f);
 %R: excess return, fac: factor, res: factor model residual. You can replace R, fac and res with own data
-beta=beta_total(1:p,:); %pxk
+beta=factor_loading_b(1:p,:); %pxk
 R=R_total(1:N,1:p);mu_pop=mu_pop_total(1:p);V=V_total(1:p,1:p);
 inv_Sigma_pop=inv(V);fac=fac_total(:,1:N);
 res= R-fac'*((fac*fac')\fac*R); %obtain (factor model) residual
