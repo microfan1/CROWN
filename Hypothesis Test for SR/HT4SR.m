@@ -8,6 +8,7 @@ function p_value = HT4SR(r1, r2, type)
         sd1 = std(r1);
         sd2 = std(r2);
         corr = corrcoef(r1, r2);
+        corr = corr(1,2);
         sr1 = mu1 / sd1;
         sr2 = mu2 / sd2;
         
