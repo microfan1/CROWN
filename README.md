@@ -2,7 +2,7 @@ CROWN
 ================
 
 ## 1. Overview
-This repository provides the code needed to compute the CROWN method for **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n**, which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different state-of-the-art methods in obtaining a solution for high dimensional portfolios with a large number of assets. Regarding the constraints, specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
+This repository provides the code needed to compute the **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n** (CROWN), which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different state-of-the-art methods in obtaining a solution for high dimensional portfolios with a large number of assets. Regarding the constraints, specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
 
 Firstly, we need an estimator of covariance/precision matrix for the return data.
 
@@ -11,9 +11,9 @@ This repository gives the implementation code for **CROWN** which uses a residua
 2. **POET** from Fan et al., 2013, [Large Covariance Estimation by Thresholding Principal Orthogonal Complements]
 3. **NLS**  and 4. **SF-NLS** from Ledoit and Wolf, 2017, [Nonlinear Shrinkage of the Covariance Matrix for Portfolio Selection: Markowitz Meets Goldilocks]
 
-The paper detailing the methodology for the CROWN estimator is available at: [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
+The paper detailing the methodology for the CROWN estimator is available at: [Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
 
-The S&P 500 stocks return data is available upon subscription to the WRDS CRSP. Data on historical index components is from Refinitiv.
+The S&P 500 stocks return data is from CRSP and accessable upon subscription to the WRDS. Data on historical index components is from Refinitiv.
 
 ## 2. Required packages
 You need to download matlab toolbox RunRCode for R functions calling.
