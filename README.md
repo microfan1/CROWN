@@ -13,6 +13,8 @@ This repository gives the implementation code for **CROWN** which uses a residua
 
 The paper detailing the methodology for the CROWN estimator is available at: [Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints](https://arxiv.org/abs/2402.17523).
 
+The S&P 500 stocks return data is available upon subscription to the WRDS CRSP. Data on historical index components is from Refinitiv.
+
 ## 2. Required packages
 You need to download matlab toolbox RunRCode for R functions calling.
 
@@ -54,6 +56,7 @@ This repository contains the Matlab and R scripts used for the implementation of
      - `nls_covMarket.m`: Function to get nonlinear shrinkage estimator.
    - SF-NLS:
      - `SF-NLS_Run_R.R`: Code to get single-factor nonlinear shrinkage estimator.
+
 ## 5. Examples of Portfolio Construction under Constraints
 `Example.mlx` exemplifies how to use CROWN and four other baseline methods for constructing portfolios with different kinds of constraints. Specifically, we consider portfolios with tracking error (TE) constraints, portfolios with tracking error jointly with weight constraints (TEWC), and portfolios with only weight constraints (WC). 
 
