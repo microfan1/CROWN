@@ -15,6 +15,12 @@ The paper detailing the methodology for the CROWN estimator is available at: [Po
 
 The S&P 500 stocks return data is from CRSP and accessable upon subscription to the WRDS. Data on historical index components is from Refinitiv.
 
+Data dictionary:
+https://wrds-www.wharton.upenn.edu/pages/get-data/center-research-security-prices-crsp/annual-update/stock-security-files/monthly-stock-file/
+https://wrds-www.wharton.upenn.edu/pages/get-data/center-research-security-prices-crsp/annual-update/stock-security-files/stock-market-indexes/
+https://wrds-www.wharton.upenn.edu/pages/get-data/fama-french-portfolios-and-factors/fama-french-portfolios/factors-monthly-frequency/
+
+
 ## 2. Required packages
 You need to download matlab toolbox RunRCode for R functions calling.
 
