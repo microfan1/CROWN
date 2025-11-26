@@ -2,7 +2,7 @@ CROWN
 ================
 
 ## 1. Overview
-This repository provides the code needed to compute the **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n** (CROWN), which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different state-of-the-art methods in obtaining a solution for high dimensional portfolios with a large number of assets. Regarding the constraints, specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. 
+This repository provides the code needed to compute the **C**onstrained **R**esidual Nodewise **O**ptimal **W**eight Regressio**n** (CROWN), which can be used to construct constrained portfolios in a high-dimensional scenario (p>T). It also shows different state-of-the-art methods in obtaining a solution for high dimensional portfolios with a large number of assets. Regarding the constraints, specifically, we consider portfolios with tracking error constraints, portfolios with tracking error jointly with weight (equality or inequality) restrictions, and portfolios with only weight restrictions. It accomodates the paper: Caner, M. and Fan, Q. (2025), Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints, Journal of American Statistical Association, forthcoming, arXiv preprint arXiv:2402.17523.
 
 Firstly, we need an estimator of covariance/precision matrix for the return data.
 
@@ -193,8 +193,6 @@ The code to estimate precision matrix by different methods:
 ## References
 
 Callot, L., M. Caner, O. Onder, and E. Ulasan (2021). A nodewise regression approach to estimating large portfolios. Journal of Business and Economic Statistics 39, 520–531.
-
-Caner, M., Fan, Q., and Li, Y. (2024). Navigating Complexity: Constrained Portfolio Analysis in High Dimensions with Tracking Error and Weight Constraints. arXiv preprint arXiv:2402.17523.
 
 Caner, M., Medeiros, M., and G. Vasconcelos (2023). Sharpe Ratio analysis in high dimensions: Residual-based nodewise regression in factor models. Journal of Econometrics 235 (2), 393-417.
 
